@@ -8,7 +8,9 @@ I am a passionate IT student at Xavier University, driven by a curiosity for tec
 - 🌱 I’m currently learning Full Stack Web Development and API creation.
 - 💬 Ask me about ...
 - 📫 How to reach me: <20240030621@my.xu.edu.ph>
-
+## Fun Fact
+I like to sleep more than code
+I love building cute systems
 ## 💻 Tech Stack
 [![My Skills](https://skillicons.dev/icons?i=js,html,css,git,github,vscode)](https://skillicons.dev)
 
