@@ -1,0 +1,302 @@
+
+/* --- Base Reset & Variables --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --clr-bg: #fdf6ee;
+  --clr-surface: #ffffff;
+  --clr-accent: #d4845a;
+  --clr-accent-dark: #b8643c;
+  --clr-text: #1e1e1e;
+  --clr-muted: #888;
+  --clr-border: #e8ddd0;
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'DM Sans', sans-serif;
+  --max-width: 1080px;
+  --radius: 8px;
+}
+
+html {
+  /* Enables smooth scrolling when nav links are clicked */
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+/* --- HEADER --- */
+header {
+  background-color: var(--clr-accent);
+  background-image: radial-gradient(circle at 80% 50%, #e8a07a 0%, var(--clr-accent) 60%);
+  color: #fff;
+  padding: 3rem 2rem 2.5rem;
+  text-align: center;
+}
+
+/* Descendant selector (A B): h1 inside header */
+header h1 {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Descendant selector (A B): .tagline inside header */
+header .tagline {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  opacity: 0.88;
+  font-style: italic;
+}
+
+/* --- NAV --- */
+nav {
+  background-color: var(--clr-text);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Child selector (A > B): ul is a direct child of nav */
+nav > ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* Descendant selector (A B): anchor tags inside nav */
+nav ul a {
+  display: block;
+  color: #ffffffcc;
+  text-decoration: none;
+  padding: 0.85rem 1.4rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color 0.2s, background 0.2s;
+}
+
+nav ul a:hover {
+  color: #fff;
+  background-color: var(--clr-accent);
+}
+
+/* --- PAGE WRAPPER: Flexbox Main Layout --- */
+.page-wrapper {
+  display: flex;           /* FLEXBOX — required main layout */
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: var(--max-width);
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+}
+
+/* --- MAIN CONTENT --- */
+main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* --- SECTIONS --- */
+section {
+  background-color: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+section h2 {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  color: var(--clr-accent-dark);
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--clr-border);
+}
+
+/* Descendant selector (A B): all p inside main section */
+main section p {
+  color: #3d3d3d;
+  margin-bottom: 0.9rem;
+}
+
+/* --- ARTICLES inside sections --- */
+article {
+  border-top: 1px dashed var(--clr-border);
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+article:first-of-type {
+  border-top: none;
+  margin-top: 0.5rem;
+  padding-top: 0;
+}
+
+article h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--clr-text);
+  margin-bottom: 0.25rem;
+}
+
+/* Adjacent sibling selector (A + B): .meta immediately after h3 */
+h3 + p.meta {
+  font-size: 0.8rem;
+  color: var(--clr-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+/* General sibling selector (A ~ B): all ul after h3 in same parent */
+h3 ~ ul {
+  padding-left: 1.3rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+h3 ~ ul li {
+  margin-bottom: 0.3rem;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+/* Child selector (A > B): direct p children of article */
+article > p {
+  color: #3d3d3d;
+  margin-bottom: 0.8rem;
+}
+
+/* --- ASIDE / SIDEBAR --- */
+aside {
+  flex: 0 0 270px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.widget {
+  background-color: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.4rem;
+}
+
+.widget h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--clr-text);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--clr-accent);
+}
+
+/* Descendant selector (A B): p inside .widget */
+.widget p {
+  font-size: 0.92rem;
+  color: #555;
+  line-height: 1.65;
+}
+
+.widget ul {
+  list-style: none;
+  padding: 0;
+}
+
+.widget ul li {
+  padding: 0.3rem 0;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--clr-border);
+  color: #444;
+}
+
+.widget ul li:last-child {
+  border-bottom: none;
+}
+
+.widget ul li a {
+  color: var(--clr-text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.widget ul li a:hover {
+  color: var(--clr-accent);
+}
+
+/* --- FOOTER --- */
+footer {
+  background-color: var(--clr-text);
+  color: #999;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.875rem;
+  line-height: 2;
+  margin-top: 1rem;
+}
+
+/* Child selector (A > B): direct p children of footer */
+footer > p {
+  margin: 0;
+}
+
+/* =============================================
+   RESPONSIVE — Media Query
+   Stacks layout vertically on smaller screens
+   ============================================= */
+@media (max-width: 768px) {
+  /* Stack main content and sidebar vertically */
+  .page-wrapper {
+    flex-direction: column;
+  }
+
+  aside {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  /* Wrap nav items on small screens */
+  nav > ul {
+    justify-content: flex-start;
+  }
+
+  nav ul a {
+    padding: 0.7rem 1rem;
+    font-size: 0.82rem;
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  section {
+    padding: 1.4rem;
+  }
+}
+
+
+/* Active nav link highlight (set by JavaScript on scroll) */
+nav ul a.active {
+  color: #fff;
+  background-color: var(--clr-accent);
+}
